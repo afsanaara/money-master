@@ -1,3 +1,5 @@
+//calculation part
+
 document.getElementById('calculate-btn').addEventListener('click', function(){
     //food section
     const foodField = document.getElementById('food-input');
@@ -23,11 +25,21 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
 
     expenseField.innerText = newExpenseAmount; 
 
+    
+
     //income section
 
     const incomeField = document.getElementById('income-input');
     const incomeInput = incomeField.value;
     const totalIncome = parseFloat(incomeInput);
+// error messages
+    if(newExpenseAmount>totalIncome){
+        alert('Expense is greater than Income. It cannot be greater than Income');
+    }
+
+    if(totalIncome<0){
+        alert('Income can not be negative');
+    }
 
     //balance section
     const balanceField =document.getElementById('total-balance');
@@ -38,3 +50,21 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
 
     balanceField.innerText = newBalanceAmount;
 });
+
+
+//saving part
+
+function savingPart(){
+    const saveField = document.getElementById('save-input');
+    const saveInput = saveField.value;
+    const saveAmount = parseFloat(totalIncome/(saveInput));
+
+    //update saving amount
+
+    const updateSaving = document.getElementById('saving');
+    const updateSavingText = saving.innerText;
+    const newSavingAmount = parseFloat('updateSavingText');
+
+    updateSaving.innerText = newSavingAmount;
+
+}
