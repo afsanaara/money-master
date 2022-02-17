@@ -28,4 +28,13 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
     const incomeField = document.getElementById('income-input');
     const incomeInput = incomeField.value;
     const totalIncome = parseFloat(incomeInput);
+
+    //balance section
+    const balanceField =document.getElementById('total-balance');
+    const previousBalanceText = expenseField.innerText;
+    const previousBalanceAmount = parseFloat(previousBalanceText);
+
+    const newBalanceAmount = totalIncome - newExpenseAmount;
+
+    balanceField.innerText = newBalanceAmount;
 });
