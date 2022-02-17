@@ -55,16 +55,33 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
 //saving part
 
 function savingPart(){
+
+    //income section
+
+    const incomeField = document.getElementById('income-input');
+    const incomeInput = incomeField.value;
+    const totalIncome = parseFloat(incomeInput);
+
+
     const saveField = document.getElementById('save-input');
     const saveInput = saveField.value;
-    const saveAmount = parseFloat(totalIncome/(saveInput));
+    console.log(totalIncome,saveInput)
+    const saveAmount = (totalIncome * parseFloat(saveInput) )/100;
+    console.log(saveAmount)
 
     //update saving amount
 
     const updateSaving = document.getElementById('saving');
-    const updateSavingText = saving.innerText;
-    const newSavingAmount = parseFloat('updateSavingText');
+    updateSaving.innerText = saveAmount;
 
-    updateSaving.innerText = newSavingAmount;
+    //Remaining balance
+
+    const totalBalance = document.getElementById("total-balance");
+    const totalValue = totalBalance.innerText;
+    
+    const remainingBalance = document.getElementById("remaining-balance");
+    remainingBalance.innerText = parseFloat(totalValue) - saveAmount;
+
+
 
 }
